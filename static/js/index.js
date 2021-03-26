@@ -1,4 +1,4 @@
-//https://www.eclipse.org/paho/clients/js/
+3//https://www.eclipse.org/paho/clients/js/
 
 function LED1_On() {
 	
@@ -43,7 +43,7 @@ function LED1_Off(){
 	
     client.subscribe("javier230895@gmail.com/test2");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "jomsk@hotmail.com/IoT1";
+    message.destinationName = "javier230895@gmail.com/test";
     client.send(message);
 	
   }
