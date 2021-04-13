@@ -73,5 +73,9 @@ function LED1_Off(){
 	}else if(SValue[1]=="0"){
     document.getElementById("estado").src="/static/images/led_off.png";
 	}
-
+   function onMessageArrived(message) {
+	  vector.push(message.payloadString);
+	  separar_historial = message.payloadString.split(' ');
+	  estado = separar_historial[1];
+	  console.log(estado);
   }
