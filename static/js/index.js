@@ -1,32 +1,13 @@
-3//https://www.eclipse.org/paho/clients/js/
-
-function LED1_On() {
-	
-	document.getElementById("estado").src="/static/images/led_on.png";
-    message = new Paho.MQTT.Message("On");
-    message.destinationName = "javier230895@gmail.com/test";
-    client.send(message);
-  
-}
-function LED1_Off(){	
-	
-	document.getElementById("estado").src="/static/images/led_off.png";
-    message = new Paho.MQTT.Message("off");
-    message.destinationName = "javier230895@gmail.com/test";
-    client.send(message);
-}
-
-function BTN_His(){
-	document.getElementById("Mostrar").innerHTML = '<h3>Historial</h3>';
-	for(var i = 0; i < vector.length; i++) {
-    		document.getElementById("Mostrar").innerHTML += '<li>'+vector[i]+'</li>'
-	}
-}
-
+//https://www.eclipse.org/paho/clients/js/
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
-  var vector = [];
-  contador = 0;
+  var Recibido;
+  function MOstrar(){
+    console.log(Recibido)
+   document.getElementById('lname3').value=document.getElementById('lname3').innerHTML=Recibido.split(":")[2];
+  }
+  
+
   client = new Paho.MQTT.Client("maqiatto.com", 8883, "web_" + parseInt(Math.random() * 100, 10));
 
   // set callback handlers
@@ -34,8 +15,8 @@ function BTN_His(){
   client.onMessageArrived = onMessageArrived;
   var options = {
    useSSL: false,
-    userName: "javier230895@gmail.com",
-    password: "audio123",
+    userName: "wlara123@outlook.es",
+    password: "tomatitos1",
     onSuccess:onConnect,
     onFailure:doFail
   }
@@ -46,42 +27,38 @@ function BTN_His(){
   // called when the client connects
   function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
-    console.log("Conectado!");
+    console.log("Conectado...");
 	
-    client.subscribe("javier230895@gmail.com/test2");
+    client.subscribe("wlara123@outlook.es/repato2");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "javier230895@gmail.com/test";
+    message.destinationName = "wlara123@outlook.es/repato";
     client.send(message);
 	
   }
-
   function doFail(e){
     console.log(e);
 	
   }
-
   // called when the client loses its connection
   function onConnectionLost(responseObject) {
     if (responseObject.errorCode !== 0) {
       console.log("onConnectionLost:"+responseObject.errorMessage);
-
+    
     }
   }
 
   // called when a message arrives
   function onMessageArrived(message) {
-  var separador=",";
-  var SValue="0";
-        SValue=message.payloadString.split(separador);
-    document.getElementById("sensor").innerHTML=SValue[0];
-    if(SValue[1]=="1"){
-    document.getElementById("estado").src="/static/images/led_on.png";
-	}else if(SValue[1]=="0"){
-    document.getElementById("estado").src="/static/images/led_off.png";
-	}
-    vector.push(message.payloadString);
-    separar_historial = message.payloadString.split(' ');
-    estado = separar_historial[1];
-    console.log(estado);
+    console.log("onMessageArrived:"+message.payloadString);
+    Recibido=message.payloadString
+    if(Recibido.split(":")[0]==0){
+      document.getElementById('lname1').value="apagado";
+    }else{
+      document.getElementById('lname1').value="prendido";
+    }
+    if(Recibido.split(":")[1]==0){
+      document.getElementById('lname2').value="apagado";
+    }else{
+      document.getElementById('lname2').value="prendido";
+    }
   }
-  
