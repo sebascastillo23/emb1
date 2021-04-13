@@ -8,8 +8,8 @@
  client.onMessageArrived = onMessageArrived;
  var options = {
  useSSL: false,
- userName: "iatorres@hotmail.es",
- password: "israel123torres",
+ userName: "javier230895@gmail.com",
+ password: "audio123",
  onSuccess:onConnect,
  onFailure:doFail
  }
@@ -20,9 +20,9 @@
  function onConnect() {
  // Once a connection has been made, make a subscription and send a message.
  console.log("Conectado...");
- client.subscribe("iatorres@hotmail.es/test");
+ client.subscribe("javier230895@gmail.com/test");
  message = new Paho.MQTT.Message("Conectado al servidor NTP");
- message.destinationName = "iatorres@hotmail.es/test1";
+ message.destinationName = "javier230895@gmail.com/test2";
  client.send(message);
  }
  function doFail(e){
