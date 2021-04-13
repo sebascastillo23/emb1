@@ -41,8 +41,6 @@
 
   // called when a message arrives
   function onMessageArrived(message) {
-    var le=document.getElementById("Sensor");
-    var l=document.getElementById("Sensor1");
     console.log("onMessageArrived:"+message.payloadString);
     variables=(message.payloadString).split(("-"));
   }
