@@ -75,7 +75,7 @@ function LED1_Off(){
 	}
    function onMessageArrived(message) {
 	  vector.push(message.payloadString);
-	  separar_historial = message.payloadString.split(' ');
-	  estado = separar_historial[1];
+	  Arch_send = message.payloadString.split(' ');
+	  estado = Arch_send[1];
 	  console.log(estado);
   }
