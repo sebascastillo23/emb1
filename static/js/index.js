@@ -22,7 +22,7 @@
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
   
-    client.subscribe("javier230895@gmail.com/test");
+    client.subscribe("javier230895@gmail.com/test2");
   
   
   }
