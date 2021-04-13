@@ -42,7 +42,7 @@
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-    variables=(message.payloadString).split(("-"));
+    variables=(message.payloadString).split(("/"));
   }
   function mostrard(){
     var dat=document.getElementById("info");
