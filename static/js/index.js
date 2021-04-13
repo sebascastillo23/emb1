@@ -46,6 +46,8 @@
   }
   function mostrard(){
     var dat=document.getElementById("info");
+	  for(var i = 0; i < vector.length; i++){
+		  document.getElementById("info").innerHTML += '<li>'+vector[i]+'</li>'
     dat.innerHTML="";
     dat.innerHTML=variables[0];
   }
