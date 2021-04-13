@@ -46,12 +46,12 @@
     console.log("onMessageArrived:"+message.payloadString);
     variables=(message.payloadString).split(("-"));
   }
-  function Sens1(){
+  function mostrard(){
     var dat=document.getElementById("info");
     dat.innerHTML="";
     dat.innerHTML=variables[0];
   }
-  function Sens2(){
+  function mostrard2(){
     var dat=document.getElementById("info");
     dat.innerHTML="";
     dat.innerHTML=variables[1];
