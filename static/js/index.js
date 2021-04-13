@@ -2,7 +2,7 @@
 
 function LED1_On() {
 	
-	document.getElementById("estado").src="/static/images/led_on.png";
+	document.getElementById("estado").src="/static/images/prendido.png";
     message = new Paho.MQTT.Message("On");
     message.destinationName = "javier230895@gmail.com/test";
     client.send(message);
@@ -10,7 +10,7 @@ function LED1_On() {
 }
 function LED1_Off(){	
 	
-	document.getElementById("estado").src="/static/images/led_off.png";
+	document.getElementById("estado").src="/static/images/apagado.png";
     message = new Paho.MQTT.Message("off");
     message.destinationName = "javier230895@gmail.com/test";
     client.send(message);
