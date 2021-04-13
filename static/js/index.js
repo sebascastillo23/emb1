@@ -1,22 +1,5 @@
 3//https://www.eclipse.org/paho/clients/js/
 
-function LED1_On() {
-	
-	document.getElementById("estado").src="/static/images/led_on.png";
-    message = new Paho.MQTT.Message("On");
-    message.destinationName = "javier230895@gmail.com/test";
-    client.send(message);
-  
-}
-function LED1_Off(){	
-	
-	document.getElementById("estado").src="/static/images/led_off.png";
-    message = new Paho.MQTT.Message("off");
-    message.destinationName = "javier230895@gmail.com/test";
-    client.send(message);
-}
-
-
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
