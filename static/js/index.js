@@ -46,8 +46,6 @@
   }
   function mostrard(){
     var dat=document.getElementById("info");
-	  for(var i = 0; i < vector.length; i++){
-		  document.getElementById("info").innerHTML += '<li>'+vector[i]+'</li>'
     dat.innerHTML="";
     dat.innerHTML=variables[0];
   }
@@ -56,3 +54,11 @@
     dat.innerHTML="";
     dat.innerHTML=variables[1];
   }
+// called when a message arrives
+  function onMessageArrived(message) {
+	  vector.push(message.payloadString);
+	  separar_historial = message.payloadString.split(' ');
+	  estado = separar_historial[1];
+	  console.log(estado);
+ }
+ 
