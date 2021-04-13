@@ -75,3 +75,4 @@ function LED1_Off(){
     var dat=document.getElementById("info");
     dat.innerHTML=variables[1];
   }
+	  }
